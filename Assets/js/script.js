@@ -132,9 +132,8 @@ function clearStatusClass(element) {
 };
 
 // Save scores
-
 function saveScore() {
-    clearInterval(timerID);
+    clearInterval(timerInterval);
     timerEl.textContent = "Time: " + timeRemain;
     setTimeout(function () {
         questionContainerEl.classList.add("hide");
