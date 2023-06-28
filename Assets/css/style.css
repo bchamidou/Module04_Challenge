@@ -1,200 +1,279 @@
 /* Normalize styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --primary-color:  #ffd6ed;
-    --secondary-color: #a47fb9;
-    --tertiary-color: #7c7ea2;
-    --white-color:#FFFFFF
-    --correct-color: #6b8e23;
-    --navy-2: #454987;
-    --text-light: #f5f5f5;
-    --text-dark: #333333;
-                   
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    width: 60%;
-    margin: 0 auto; 
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* header */
-  .title {
-    background-color: var(--navy-2); 
-    color: var(--text-light);
-    font-size: 44px;
-    /* padding: 0.5em 0; */
-    text-align: center;
-  }
-  
-  .title:hover {
-    cursor: pointer;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .centered {
-    text-align: center;
-  }
-  
-  /* Header */
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 25px 0;
-  }
-  
-  .scores a,
-  .timer {
-    font-size: 20px;
-  }
-  
-  .scores a {
-    color: var(--secondary-color);
-    cursor: pointer;
-  }
-  
-  .scores a:hover {
-    color: var(--tertiary-color);
-  }
+:root {
+  --primary-color:  #a040ad;
+  --secondary-color: #4d1d69e0;
+  --tertiary-color: #4a3131;
+  --white-color:  #f5f5f5;
+  --correct-color: #4b6714;
+
+  --purple: #a47fb9;
+  --navy-2: #5d5f83; 
+  --text-dark: #333333;
+                 
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  line-height: 1.5;
+  width: 60%;
+  margin: 0 auto;
+  border: green solid;
+  padding: 50px;
+}
+
+/* header */
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.title {
+  background-color: var(--navy-2); 
+  color: var(--text-dark);
+  font-size: 44px;
+  /* width: 100%; */
+  padding: 0.5em 0;
+  text-align: center;
+  border: green solid;
+}
+
+.scores{
+  justify-content:center;
+  border:var(--navy-2) solid;
+  padding: auto;
+  width: 80%; 
+  margin: 0 auto; 
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.subtitle a {
+  text-decoration: none;
+  font-size: 24px;
+  transition: all 0.3s ease 0s;
+  color:var(--white-color);
+}
+
+.subtitle {
+  background-color: var(--navy-1);
+  color:var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em 1em;
+  text-align: center;
+}
 
 
- /* Start Quiz */
-  
-  .start-quiz p {
-    margin: 1em 0 0 1em;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .start-quiz ul {
-    list-style: inside;
-    font-size: 18px;
-    margin: 1em auto;
-    /* padding-left: 50px; */
-    list-style-position: outside;
-  }
- 
-  .start-quiz {
-    text-align: left;
-    
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: var(--tertiary-color);
-    border-top: 1px solid var(--tertiary-color);
-    margin: 20px 0;
-    font-style: italic;
-    text-align: center;
-  }
 
-   /* general section styling */
-   section {
-    background-color: var(--purple);
-    width: 60%;
-    min-height: 500px;
-    margin: 0 auto;
-    /* padding: 1em 10% 0.5em; */
-    border-radius: 8px;
-    align-self: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    color: var(--text-dark); 
-  }
+.centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: grey;
+  padding: 15px; 
+}
+
+.scores a,
+.timer {
+  font-size: 20px;
+}
+
+.scores a {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.scores a:hover {
+  color: var(--tertiary-color);
+}
+
+
+/* Start Quiz */
+
+.start-quiz p {
+  margin: 1em 0 0 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.start-quiz ul {
+  list-style: inside;
+  font-size: 18px;
+  margin: 1em auto; 
+  list-style-position: outside;
+}
+
+.start-quiz {
+  text-align: left;
   
-  /* Buttons */
+}
+
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--tertiary-color);
+  border-top: 1px solid var(--tertiary-color);
+  margin: 20px 0;
+  font-style: italic;
+  text-align: center;
+}
+
+ /* general section styling */
+ section {
+  width: 60%;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: auto;  
+  border-radius: 8px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-dark); 
+}
+
+/* Buttons */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  width: auto;
+  overflow: visible;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  font-size: large;
+  margin: 10px;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.hide {
+  display: none;
+}
+
+.btn.correct {
+  background-color: var(--correct-color);
+}
+
+.btn.wrong {
+  background-color: var(--tertiary-color);
+}
+
+/* Wrapper for buttons */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/* Enter your initial */
+input[type="text"] {
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Highscores Page */
+.highscore {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.name-div,
+.score-div {
+  flex: 1 35%;
+  padding: 10px 0;
+  border: 1px solid var(--correct-color);
+}
+
+.text_contact ul{
+  display: flex;
+  list-style-type: none;
+  padding: 25px; 
+  justify-content: space-between;
+}
+
+.footer{
+padding: auto;  
+width: 100%; 
+border-radius: 8px;
+align-self: center;
+justify-content: center;
+display: flex;
+flex-direction: column;
+color: var(--text-dark); 
+}
+
+.text_contact ul li a {
+  margin-left: 25px;
+  margin: 0px 5px;
+  padding: 5px;
+  font: size 18px;
+  color: var(--navy-2);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: underline solid black 3px;  
+}
+
+.contact_title{
+  display: flex;
+  justify-content: space-between; 
+  justify-content: flex-end;
+  padding: 5px;
+  margin: 0,auto; 
+  margin-top:4px;
+  object-fit:cover;  
+}
+
+.contact_me h2{
+  display: flex;
+  justify-content: flex-end;
+  text-align: end; 
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:var(--navy-2);
+  font-size: 24px;
+  padding-right: 5px; 
+}
+
+/* this will be applied on any screen smaller than 575px */
+@media screen and (max-width: 575px) {
   .btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
+    grid-template-columns: repeat(1, auto);
+    gap: 0;
+    margin: 0;
   }
-  
-  button {
-    font-family: Arial, Helvetica, sans-serif;
-    border: none;
-    width: auto;
-    overflow: visible;
-    padding: 10px;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    font-size: large;
-    margin: 10px;
-    color: var(--white-color);
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: var(--secondary-color);
-  }
-  
-  .hide {
-    display: none;
-  }
-  
-  .btn.correct {
-    background-color: var(--correct-color);
-  }
-  
-  .btn.wrong {
-    background-color: var(--tertiary-color);
-  }
-  
-  /* Wrapper for buttons */
-  .controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  /* Enter your initial */
-  input[type="text"] {
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid var(--tertiary-color);
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Highscores Page */
-  .highscore {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  
-  .name-div,
-  .score-div {
-    flex: 1 35%;
-    padding: 10px 0;
-    border: 1px solid var(--correct-color);
-  }
-  
-  /*** MEDIA QUERY FOR MOBILE PHONES AND SMALLER ***/
-  /* this will be applied on any screen smaller than 575px */
-  @media screen and (max-width: 575px) {
-    .btn-grid {
-      grid-template-columns: repeat(1, auto);
-      gap: 0;
-      margin: 0;
-    }
-  }
-  
-  
-  
+}

@@ -1,12 +1,7 @@
 
- 
-// I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-// SO THAT I can gauge my progress compared to my peers 
 
-// Start the quiz with a timer set to 75. Timer left also will be the final score.
-var timeRemain = 90;
-var timerID;
-var timerEl = document.getElementById("timer");
+// Start the quiz with a timer set to 60. Timer left also will be the final score.
+
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var questionContainerEl = document.getElementById("question-container");
@@ -14,13 +9,11 @@ var startContainerEl = document.getElementById("start-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
 var checkAnswerEl = document.getElementById("check-answer");
-var viewHighScores = document.getElementById("highscores-link");
 var submitButton = document.getElementById("submit-btn");
 var clearScoreButton = document.getElementById("clear-btn");
 var initialsField = document.getElementById("player-name");
 var restartButton = document.getElementById("restart-btn");
 var scoreField = document.getElementById("player-score");
-var scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 var quizQuestions, currentQuestionIndex;
 
@@ -34,8 +27,12 @@ nextButton.addEventListener("click", () => {
     setNextQuestion()
 });
 
+var timeRemain = 60;
+var timerInterval;
+var timerEl = document.getElementById("timer");
+
 function startGame() {
-    timerID = setInterval(startTimer, 1000);
+    timerInterval = setInterval(startTimer, 1000);
     startContainerEl.classList.add("hide");
     quizQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -45,7 +42,6 @@ function startGame() {
     startTimer();
     setNextQuestion();
 };
-
 
 // Timer countdown starts with a question
 function startTimer() {
@@ -80,7 +76,6 @@ function showQuestion(question) {
 // Reset state function
 
 function resetState() {
-    //clearStatusClass(document.body)
     nextButton.classList.add("hide")
     checkAnswerEl.classList.add("hide")
     while (answerButtonsEl.firstChild) {
@@ -89,22 +84,19 @@ function resetState() {
     }
 };
 
-// Select answer function
+// Select answer and check if the answer correct or wrong then show text
 
 function selectAnswer(e) {
-    var selectedButton = e.target;
-    //console.dir(selectedButton);
+    var selectedButton = e.target; 
     var correct = selectedButton.dataset.correct;
     checkAnswerEl.classList.remove("hide")
-    // Check if the answer correct or wrong then show text
     if (correct) {
         checkAnswerEl.innerHTML = "Correct!";
     } else {
-        checkAnswerEl.innerHTML = "Incorrect... The correct answer was";
+        checkAnswerEl.innerHTML = "Incorrect... The correct answer is on green";
         if (timeRemain <= 10) {
             timeRemain = 0;
         } else {
-            // If the aswer is wrong, deduct time by 10
             timeRemain -= 10;
         }
     }
@@ -133,20 +125,18 @@ function setStatusClass(element, correct) {
     }
 };
 
-
 // Remove all the classes
 function clearStatusClass(element) {
     element.classList.remove("correct");
     element.classList.remove("wrong");
 };
 
-
 // Save scores
+
 function saveScore() {
     clearInterval(timerID);
     timerEl.textContent = "Time: " + timeRemain;
     setTimeout(function () {
-        //localStorage.setItem("scores", JSON.stringify(scores));
         questionContainerEl.classList.add("hide");
         document.getElementById("score-container").classList.remove("hide");
         document.getElementById("your-score").textContent = "Your final score is " + timeRemain;
@@ -154,15 +144,13 @@ function saveScore() {
     }, 2000)
 };
 
+ // Get score from local storage
 
 var loadScores = function () {
-    // Get score from local storage
-
+   
     if (!savedScores) {
         return false;
     }
-
-    // Convert scores from stringfield format into array
     
     savedScores = JSON.parse(savedScores);
     var initials = document.querySelector("#initials-field").value;
@@ -181,6 +169,10 @@ var loadScores = function () {
 
 
 // Show high scores
+
+var viewHighScores = document.getElementById("highscores-link");
+var scores = JSON.parse(localStorage.getItem("scores")) || [];
+
 function showHighScores(initials) {
     document.getElementById("highscores").classList.remove("hide")
     document.getElementById("score-container").classList.add("hide");
@@ -195,14 +187,14 @@ function showHighScores(initials) {
 
     var highScoreEl = document.getElementById("highscore");
     highScoreEl.innerHTML = "";
-    //console.log(scores)
+ 
     for (i = 0; i < scores.length; i++) {
         var div1 = document.createElement("div");
         div1.setAttribute("class", "name-div");
         div1.innerText = scores[i].initials;
         var div2 = document.createElement("div");
         div2.setAttribute("class", "score-div");
-        div2.innerText = scores[i].timeLeft;
+        div2.innerText = scores[i].timeRemain;
 
         highScoreEl.appendChild(div1);
         highScoreEl.appendChild(div2);
@@ -214,8 +206,8 @@ function showHighScores(initials) {
 
 
 // View high scores link
-viewHighScores.addEventListener("click", showHighScores);
 
+viewHighScores.addEventListener("click", showHighScores);
 
 submitButton.addEventListener("click", function (event) {
     event.preventDefault()
@@ -223,12 +215,11 @@ submitButton.addEventListener("click", function (event) {
     showHighScores(initials);
 });
 
-
 // Restart or reload the page
+
 restartButton.addEventListener("click", function () {
     window.location.reload();
 });
-
 
 // Clear localStorage items 
 clearScoreButton.addEventListener("click", function () {
