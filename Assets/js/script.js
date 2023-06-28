@@ -225,5 +225,3 @@ clearScoreButton.addEventListener("click", function () {
     localStorage.clear();
     document.getElementById("highscore").innerHTML = "";
 });
-
-
