@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz Programme</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="scores">
+            <h1 class="title">Multiple-choice questions Quiz</h1>
+            <div class="subtitle">
+                <a id="highscores-link">View high scores</a> <h2 id="timer-el"></h2>
+            </div>
+        </div>
+        <div id="timer" class="timer">
+        </div>
+    </header>
+
+    <section id="start-container" class="start-quiz">
+        <h1>Welcome to My Quiz Challenge</h1>
+        <p>Time programming quiz rules:</p>
+        <ul>
+          <li>You will have 90 seconds to complete the quiz.</li>
+          <li>You may skip as many questions as you like.</li>
+          <li>Answers can not be changed once selected.</li>
+          <li>Incorrect answers will penalize your time by ten seconds.</li>
+          <li>Correct answers will increase your score by 10 points.</li>
+        </ul>
+        <p>
+            Your total score will be your time after you answer the last question. <br>
+            Click start when you are ready.
+        </p>
+        <div class="controls">
+            <button id="start-btn" class="start-btn">Start Quiz</button>
+        </div>
+    </section>
+
+    <section id="question-container" class="hide">
+        <h1 id="question">Question</h1>
+        <div id="answer-buttons" class="btn-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
+        </div>
+        <h2 id="check-answer" class="correct-wrong hide"></h2>
+        <div class="controls">
+            <button id="next-btn" class="next-btn hide">Next</button>
+        </div>
+    </section>
+
+    <section id="score-container" class="hide">
+        <form id="submit-form">
+            <h3 id="your-score"></h3>
+            <label id="initials-label">Enter your initials to save the score:</label>
+            <input type="text" id="initials-field" maxlength="3" placeholder="Enter your initials" />
+            <button id="submit-btn">Submit</button>
+        </form>
+    </section>
+
+    <section id="highscores" class="highscores-container hide">
+        <div id="high-scores">
+            <h1 class="centered">Scores dashboard</h1>
+            <div id="highscore" class="highscore highscore-list">
+            </div>
+            <div class="controls">
+                <button id="restart-btn">Restart</button>
+                <button id="clear-btn">Clear Scores</button>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="./assets/js/question.js"></script>
+    <script src="./assets/js/script.js"></script>
+    
+</body>
+
+</html>
+
